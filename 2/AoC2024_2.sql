@@ -29,10 +29,10 @@ from #puzzle
 				when splitted_value - cast(left(report, charindex(' ', report + ' ') - 1) as int)  > 0 then '+' 
 			else '' end as ascDesc 
 		, case 
-			when statusSafe=1 and splitted_value=cast(left(report, charindex(' ', report + ' ') - 1) as int) then 0
-			when statusSafe=1 and (ABS(splitted_value - cast(left(report, charindex(' ', report + ' ') - 1) as int)) < 1
+			when splitted_value=cast(left(report, charindex(' ', report + ' ') - 1) as int) then 0
+			when (ABS(splitted_value - cast(left(report, charindex(' ', report + ' ') - 1) as int)) < 1
 									OR ABS(splitted_value - cast(left(report, charindex(' ', report + ' ') - 1) as int)) > 3) then 0
-			when statusSafe=1 and ascDesc <> '0' and (
+			when ascDesc <> '0' and (
 				case when splitted_value - cast(left(report, charindex(' ', report + ' ') - 1) as int) < 0 then '-' 
 					when splitted_value - cast(left(report, charindex(' ', report + ' ') - 1) as int) > 0 then '+' 
 				else '' end
